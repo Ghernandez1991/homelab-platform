@@ -1,0 +1,45 @@
+grafana:
+  enabled: true
+  adminPassword: "changeme"
+  service:
+    type: ClusterIP
+
+prometheus:
+  prometheusSpec:
+    retention: 7d
+    resources:
+      requests:
+        cpu: 200m
+        memory: 1Gi
+      limits:
+        memory: 2Gi
+
+alertmanager:
+  alertmanagerSpec:
+    resources:
+      requests:
+        cpu: 50m
+        memory: 200Mi
+      limits:
+        memory: 500Mi
+
+kube-state-metrics:
+  resources:
+    requests:
+      cpu: 50m
+      memory: 150Mi
+    limits:
+      memory: 300Mi
+
+nodeExporter:
+  resources:
+    requests:
+      cpu: 50m
+      memory: 50Mi
+    limits:
+      memory: 100Mi
+
+prometheusOperator:
+  admissionWebhooks:
+    enabled: false
+
