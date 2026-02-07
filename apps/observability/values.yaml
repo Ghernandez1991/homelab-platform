@@ -3,7 +3,7 @@ grafana:
   adminPassword: "changeme"
   service:
     type: ClusterIP
-  extraEnv:
+  envValueFrom:
     - name: GF_SMTP_USER
       valueFrom:
         secretKeyRef:
