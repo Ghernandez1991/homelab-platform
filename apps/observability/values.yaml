@@ -4,16 +4,14 @@ grafana:
   service:
     type: ClusterIP
   envValueFrom:
-    - name: GF_SMTP_USER
-      valueFrom:
-        secretKeyRef:
-          name: grafana-smtp
-          key: user
-    - name: GF_SMTP_PASSWORD
-      valueFrom:
-        secretKeyRef:
-          name: grafana-smtp
-          key: password
+    GF_SMTP_USER:
+      secretKeyRef:
+        name: grafana-smtp
+        key: user
+    GF_SMTP_PASSWORD:
+      secretKeyRef:
+        name: grafana-smtp
+        key: password
 
   grafana.ini:
     smtp:
